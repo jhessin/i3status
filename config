@@ -7,9 +7,9 @@ general {
 order += "ipv6"
 order += "disk /"
 order += "disk /home"
-order += "wireless wlan0"
-order += "ethernet enp2s0"
-order += "battery 0"
+order += "wireless _first_"
+order += "ethernet _first_"
+order += "battery all"
 order += "load"
 order += "tztime local"
 
@@ -17,25 +17,25 @@ ipv6 {
   format_down = ""
 }
 
-wireless wlan0 {
+wireless _first_ {
         format_up = "W: (%quality at %essid, %bitrate) %ip"
         format_down = ""
 }
 
-ethernet enp2s0 {
+ethernet _first_ {
         format_up = "E: %ip (%speed)"
-        format_down = "E: down"
+        format_down = ""
 }
 
-battery 0 {
-        format = "%status %percentage %remaining %emptytime"
-        format_down = "No battery"
+battery all {
+        format = "BAT: %status %remaining %emptytime"
+        format_down = ""
         status_chr = "⚡ CHR"
         status_bat = "🔋 BAT"
         status_unk = "? UNK"
         status_full = "☻ FULL"
-        path = "/sys/class/power_supply/BAT%d/uevent"
         low_threshold = 10
+        threshold_type = time
 }
 
 tztime local {
@@ -48,9 +48,9 @@ load {
 }
 
 disk "/" {
-        format = "%free"
+        format = "/: %free"
 }
 
 disk "/home" {
-  format = "%free"
+  format = "/home: %free"
 }
