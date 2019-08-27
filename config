@@ -17,7 +17,7 @@ general {
 # order += "ipv6"
 order += "cpu_usage"
 order += "disk /"
-order += "disk /home"
+order += "disk /run/media/emby/backups"
 order += "wireless _first_"
 order += "ethernet _first_"
 # order += "battery all"
@@ -36,11 +36,11 @@ load {
 
 disk "/" {
         # format = " hdd %avail "
-        format = " /⛁ %avail "
+        format = " ⛁ %avail "
 }
 
-disk "/home" {
-        format = " /home⛁ %avail "
+disk "/run/media/emby/backups" {
+        format = " bkups⛁ %avail "
 }
 
 wireless _first_ {
