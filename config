@@ -40,7 +40,7 @@ disk "/" {
 }
 
 disk "/run/media/emby/backups" {
-        format = " bkups⛁ %avail "
+        format = " ⛁bkups %avail "
 }
 
 wireless _first_ {
